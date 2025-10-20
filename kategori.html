@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Kategori - MTsN 1 Kota Tangerang</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#00e932;
+  --green-dark:#008a2e;
+  --accent:#317cff;
+  --bg:#f5f7f8;
+  --card-shadow: 0 10px 28px rgba(17,24,39,0.08);
+  --radius:16px;
+  --max-width:980px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Nunito",sans-serif;background:var(--bg);color:#1b2b3a;line-height:1.5}
+.container{max-width:var(--max-width);margin:26px auto;padding:18px}
+
+/* ===== Header / Nav (simple) ===== */
+.header{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  background:#fff;padding:12px 18px;border-radius:14px;box-shadow:var(--card-shadow);
+}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:56px;height:56px;background:url('https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-10-20/YZsQV5bGAo.png') center/contain no-repeat;border-radius:10px}
+.brand-title{font-weight:700;color:var(--green-dark);font-size:18px}
+.nav a{margin-left:12px;text-decoration:none;color:var(--green-dark);font-weight:600}
+
+/* ===== Page intro ===== */
+.page-hero{
+  margin-top:18px;background:linear-gradient(180deg,#fff, #fcfff4);
+  border-radius:14px;padding:18px;display:flex;gap:18px;align-items:center;
+  box-shadow:var(--card-shadow);
+}
+.hero-text h1{margin:0;font-size:22px;color:var(--green-dark)}
+.hero-text p{margin:6px 0 0;color:#495567}
+.hero-illus{width:150px;height:120px;background:url('https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-10-20/tJXZZVcNia.png') center/contain no-repeat}
+
+/* ===== Category grid ===== */
+.category-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+.card{background:#fff;border-radius:14px;padding:14px;box-shadow:var(--card-shadow);display:flex;flex-direction:column;gap:10px}
+.card .icon{width:56px;height:56px;border-radius:12px;background:#f0f7f5;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--green-dark)}
+.card h3{margin:0;font-size:16px;color:var(--green-dark)}
+.card p{margin:0;color:#556677;font-size:13px}
+
+/* ===== Detail sections ===== */
+.section{margin-top:22px;background:#fff;padding:18px;border-radius:14px;box-shadow:var(--card-shadow)}
+.section h2{margin-top:0;color:var(--accent)}
+.kepala{display:flex;gap:16px;align-items:flex-start}
+.kepala .foto{width:300px;height:96px;border-radius:12px;background:url('https://mtsn1kotatangerang.sch.id/file/takmir/ALI.png') center/cover}
+.kepala blockquote{margin:0;font-style:italic;color:#2b3b4f}
+.kepala .meta{font-weight:700;color:var(--green-dark);margin-top:8px}
+
+/* list styling */
+.list{margin:10px 0 0 0;padding-left:18px}
+.list li{margin:8px 0;color:#334a5a}
+
+/* small utilities */
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:10px 14px;border-radius:12px;background:var(--green-dark);color:#fff;text-decoration:none;font-weight:700}
+
+/* contact card */
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+.contact{background:#f8fbf8;padding:12px;border-radius:12px;border:1px solid #e9f7ea}
+
+/* responsive */
+@media(max-width:980px){
+  .category-grid{grid-template-columns:repeat(2,1fr)}
+  .contact-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .header{flex-direction:column;align-items:flex-start}
+  .page-hero{flex-direction:column;align-items:flex-start}
+  .category-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .kepala{flex-direction:column;align-items:center;text-align:center}
+  .kepala blockquote{max-width:100%}
+}
+</style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header" role="banner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div class="brand-title">MTsN <span style="color:#fce540;margin-left:6px">Negeri 1</span> Kota Tangerang</div>
+          <div style="font-size:12px;color:#778899">Pendidikan — Karakter — Prestasi</div>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Main">
+        <a href="login.html">Login</a>
+        <a href="signup.html">Daftar</a>
+      </nav>
+    </div>
+
+    <!-- Hero / Intro -->
+    <div class="page-hero" role="region" aria-label="Intro Kategori">
+      <div class="hero-text">
+        <h1>Kategori Informasi</h1>
+        <p>Pilih kategori untuk melihat informasi sekolah: sambutan kepala sekolah, visi & misi, program unggulan, fasilitas, dan info kontak.</p>
+      </div>
+      <div class="hero-illus" aria-hidden="true"></div>
+    </div>
+
+    <!-- Category Cards -->
+    <div class="category-grid" role="navigation" aria-label="Kategori">
+      <a class="card" href="#sambutan">
+        <div class="icon">KS</div>
+        <h3>Sambutan Kepala Sekolah</h3>
+        <p>Ucapan kepala sekolah, visi pendidikan, dan harapan untuk siswa & guru.</p>
+      </a>
+
+      <a class="card" href="#visi-misi">
+        <div class="icon">VM</div>
+        <h3>Visi & Misi</h3>
+        <p>Visi madrasah, misi strategis, dan tujuan pendidikan.</p>
+      </a>
+
+      <a class="card" href="#program">
+        <div class="icon">PG</div>
+        <h3>Program Unggulan</h3>
+        <p>Program akademik, kegiatan ekstrakurikuler, dan pembinaan prestasi.</p>
+      </a>
+
+      <a class="card" href="#fasilitas">
+        <div class="icon">FS</div>
+        <h3>Fasilitas</h3>
+        <p>Fasilitas sekolah: laboratorium, perpustakaan, lapangan, ruang ibadah.</p>
+      </a>
+
+      <a class="card" href="#nilai">
+        <div class="icon">NV</div>
+        <h3>Nilai & Budaya</h3>
+        <p>Nilai-nilai yang kami tanamkan: integritas, disiplin, dan kepedulian.</p>
+      </a>
+
+      <a class="card" href="#kontak">
+        <div class="icon">CT</div>
+        <h3>Kontak & Info</h3>
+        <p>Alamat, telepon, email, dan jam layanan administrasi.</p>
+      </a>
+    </div>
+
+    <!-- Sambutan Kepala Sekolah -->
+    <section id="sambutan" class="section" aria-labelledby="sambutan-title">
+      <h2 id="sambutan-title">Sambutan Kepala Sekolah</h2>
+      <div class="kepala">
+        <div class="foto" aria-hidden="true"></div>
+        <div>
+          <blockquote>
+            "Assalamu’alaikum warahmatullahi wabarakatuh.  
+            Selamat datang di MTsN Negeri 1 Kota Tangerang — rumah bagi generasi cerdas dan berakhlak.  
+            Saya, Drs. H. Ahmad Syahputra (fiksi), bersama seluruh dewan guru berkomitmen membimbing anak-anak agar tumbuh menjadi insan yang beriman, berilmu, dan berprestasi di bidang akademik maupun karakter.  
+            Kami percaya bahwa setiap siswa mempunyai potensi unik; tugas kita sebagai pendidik adalah membuka potensi itu dengan ilmu, teladan, dan kasih sayang."
+          </blockquote>
+          <div class="meta">Drs. H. Ahmad Syahputra — Kepala MTsN 1 Kota Tangerang</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visi & Misi -->
+    <section id="visi-misi" class="section" aria-labelledby="vm-title">
+      <h2 id="vm-title">Visi & Misi</h2>
+
+      <h3 style="color:var(--green-dark);margin-top:8px">Visi</h3>
+      <p>Mewujudkan lulusan yang berakhlaq mulia, berdaya saing akademik, dan berdedikasi pada masyarakat pada tahun 2030.</p>
+
+      <h3 style="color:var(--green-dark);margin-top:12px">Misi</h3>
+      <ul class="list">
+        <li>Menyelenggarakan pendidikan yang berkualitas berbasis nilai keislaman dan keilmuan.</li>
+        <li>Meningkatkan kompetensi guru melalui pelatihan dan pembelajaran inovatif.</li>
+        <li>Membangun lingkungan sekolah yang aman, bersih, dan mendukung tumbuh kembang siswa.</li>
+        <li>Mendorong partisipasi orang tua dan masyarakat dalam proses pendidikan.</li>
+      </ul>
+
+      <h3 style="color:var(--green-dark);margin-top:12px">Tujuan Strategis</h3>
+      <ul class="list">
+        <li>Meningkatkan rata-rata nilai ujian sekolah sebesar 15% dalam 3 tahun.</li>
+        <li>Mencetak minimal 10 prestasi akademik/ekstrakurikuler tingkat kabupaten/provinsi setiap tahun.</li>
+      </ul>
+    </section>
+
+    <!-- Program Unggulan -->
+    <section id="program" class="section" aria-labelledby="program-title">
+      <h2 id="program-title">Program Unggulan</h2>
+      <div class="row">
+        <div class="card" style="flex:1">
+          <h3>Full-Day School</h3>
+          <p>Jadwal belajar terstruktur, program pengayaan, dan kegiatan bimbingan karakter setiap hari.</p>
+        </div>
+        <div class="card" style="flex:1">
+          <h3>Program Bimbingan Minat & Bakat</h3>
+          <p>Pelatihan olimpiade, rumah sains, klub debat, dan latihan seni/perpaskibra.</p>
+        </div>
+        <div class="card" style="flex:1">
+          <h3>Program Keagamaan</h3>
+          <p>Tahsin/tahfidz, Rihlah islami, dan pembinaan rohani secara berkala.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fasilitas -->
+    <section id="fasilitas" class="section" aria-labelledby="fas-title">
+      <h2 id="fas-title">Fasilitas</h2>
+
+      <div class="row" style="margin-top:8px">
+        <div class="card" style="flex:1">
+          <h3>Perpustakaan Modern</h3>
+          <p>Koleksi buku kurikulum, literasi umum, dan ruang baca yang nyaman.</p>
+        </div>
+        <div class="card" style="flex:1">
+          <h3>Laboratorium IPA & Komputer</h3>
+          <p>Laboratorium terawat lengkap untuk praktik dan pembelajaran berbasis proyek.</p>
+        </div>
+        <div class="card" style="flex:1">
+          <h3>Lapangan Olahraga & Aula</h3>
+          <p>Lapangan futsal, voli, aula serbaguna untuk acara dan latihan ekstrakurikuler.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nilai & Budaya -->
+    <section id="nilai" class="section" aria-labelledby="nilai-title">
+      <h2 id="nilai-title">Nilai & Budaya Sekolah</h2>
+      <ul class="list">
+        <li>Integritas — bertindak jujur dan bertanggung jawab.</li>
+        <li>Disiplin — menjunjung tata tertib dan etika pembelajaran.</li>
+        <li>Keteladanan — guru menjadi panutan yang baik.</li>
+        <li>Gotong Royong — kerja sama dalam semua kegiatan sekolah.</li>
+      </ul>
+    </section>
+
+    <!-- Kontak -->
+    <section id="kontak" class="section" aria-labelledby="kontak-title">
+      <h2 id="kontak-title">Kontak & Informasi</h2>
+      <div class="contact-grid">
+        <div class="contact">
+          <strong>Alamat</strong>
+          <div style="margin-top:8px;color:#445566">Jl. Pendidikan No. 12, Kota Tangerang, Banten</div>
+        </div>
+        <div class="contact">
+          <strong>Telepon</strong>
+          <div style="margin-top:8px;color:#445566">+62 21 555 0123</div>
+        </div>
+        <div class="contact">
+          <strong>Email</strong>
+          <div style="margin-top:8px;color:#445566">info@mtsn1-tangerang.sch.id</div>
+        </div>
+      </div>
+
+      <div style="margin-top:14px">
+        <a class="btn" href="mailto:admin@mtsn1-tangerang.sch.id">Kirim Email ke Admin</a>
+      </div>
+    </section>
+
+    <!-- Footer shortcut -->
+    <div style="margin-top:16px;display:flex;justify-content:space-between;align-items:center;gap:12px">
+      <div style="color:#6b7788;font-size:13px">© 2025 MTsN Negeri 1 Kota Tangerang (Demo / Fiksi)</div>
+      <div><a href="#sambutan" style="text-decoration:none;color:var(--green-dark);font-weight:700">Kembali ke atas ↑</a></div>
+    </div>
+
+  </div>
+</body>
+</html>

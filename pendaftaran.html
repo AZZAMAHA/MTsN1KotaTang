@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pendaftaran 2025/2026 - MTsN 1 Kota Tangerang</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#00e932;
+    --green-dark:#008a2e;
+    --bg:#f7faf9;
+    --card:#fff;
+    --shadow:0 8px 25px rgba(0,0,0,0.08);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:"Nunito",sans-serif;
+    background:var(--bg);
+    color:#1f2937;
+  }
+  header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 30px;
+    background:#fff;
+    box-shadow:0 3px 10px rgba(0,0,0,0.05);
+  }
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand img{width:50px;height:50px;border-radius:8px;}
+  .brand h1{margin:0;font-size:18px;color:var(--green-dark);}
+  nav a{
+    text-decoration:none;
+    color:var(--green-dark);
+    margin-left:16px;
+    font-weight:600;
+    font-size:14px;
+  }
+  nav a:hover{text-decoration:underline;}
+
+  .hero{
+    text-align:center;
+    padding:50px 20px 20px;
+    background:linear-gradient(120deg,var(--green-dark),var(--green));
+    color:#fff;
+  }
+  .hero h2{margin:0;font-size:28px;}
+  .hero p{margin-top:8px;font-size:15px;opacity:0.9;}
+
+  .container{
+    max-width:800px;
+    background:var(--card);
+    margin:-40px auto 30px;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:var(--shadow);
+  }
+  h3{color:var(--green-dark);margin-bottom:16px;text-align:center;}
+  form{
+    display:grid;
+    gap:15px;
+  }
+  label{font-weight:600;font-size:14px;}
+  input, select, textarea{
+    width:100%;
+    padding:10px 12px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    font-size:14px;
+  }
+  input:focus, select:focus, textarea:focus{
+    outline:none;
+    border-color:var(--green-dark);
+  }
+  .btn{
+    background:var(--green-dark);
+    color:#fff;
+    border:none;
+    border-radius:10px;
+    padding:12px;
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+    transition:background 0.2s ease;
+  }
+  .btn:hover{background:#007a29;}
+  .alert{
+    display:none;
+    background:#e7f9e9;
+    border:1px solid #b2e3b9;
+    color:#046d22;
+    padding:10px;
+    border-radius:8px;
+    margin-top:10px;
+    text-align:center;
+    font-size:14px;
+  }
+
+  footer{
+    text-align:center;
+    padding:15px 0;
+    font-size:13px;
+    color:#6b7a84;
+  }
+
+  @media(max-width:600px){
+    .container{padding:20px;}
+    header{flex-direction:column;gap:8px;text-align:center;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-10-20/YZsQV5bGAo.png" alt="Logo MTsN 1 Kota Tangerang">
+    <h1>MTsN 1 Kota Tangerang</h1>
+  </div>
+  <nav>
+    <a href="index.html">Beranda</a>
+    <a href="kategori.html">Kategori</a>
+    <a href="berita.html">Berita</a>
+    <a href="tentangkami.html">Tentang</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Pendaftaran Siswa Baru 2025/2026</h2>
+  <p>Daftar sekarang untuk bergabung bersama MTsN 1 Kota Tangerang — Madrasah Unggul, Berakhlak, dan Berprestasi!</p>
+  <p>...</p>
+</section>
+
+<div class="container">
+  <h3>Formulir Pendaftaran</h3>
+  <form onsubmit="return kirimData(event)">
+    <div>
+      <label>Nama Lengkap</label>
+      <input type="text" placeholder="Masukkan nama lengkap" required>
+    </div>
+    <div>
+      <label>NISN</label>
+      <input type="text" placeholder="Masukkan NISN" required>
+    </div>
+    <div>
+      <label>Asal Sekolah</label>
+      <input type="text" placeholder="Nama SD/MI asal" required>
+    </div>
+    <div>
+      <label>Alamat Lengkap</label>
+      <textarea rows="3" placeholder="Masukkan alamat rumah lengkap" required></textarea>
+    </div>
+    <div>
+      <label>Jenis Kelamin</label>
+      <select required>
+        <option value="">-- Pilih Jenis Kelamin --</option>
+        <option>Laki-laki</option>
+        <option>Perempuan</option>
+      </select>
+    </div>
+    <div>
+      <label>Tanggal Lahir</label>
+      <input type="date" required>
+    </div>
+    <div>
+      <label>Pilihan Kelas / Fokus</label>
+      <select required>
+        <option value="">-- Pilih Program --</option>
+        <option>Reguler</option>
+        <option>Program Tahfidz</option>
+        <option>Program Sains</option>
+      </select>
+    </div>
+    <button class="btn" type="submit">Kirim Pendaftaran</button>
+    <div id="notif" class="alert">✅ Data pendaftaran Anda berhasil dikirim!</div>
+  </form>
+</div>
+
+<footer>
+  © 2025 MTsN 1 Kota Tangerang | PPDB 2025/2026
+</footer>
+
+<script>
+function kirimData(e){
+  e.preventDefault();
+  const alertBox = document.getElementById('notif');
+  alertBox.style.display = 'block';
+  setTimeout(()=> alertBox.style.display='none', 4000);
+  e.target.reset();
+  return false;
+}
+</script>
+
+</body>
+</html>

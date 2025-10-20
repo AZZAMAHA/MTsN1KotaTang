@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Lupa Password - MTsN 1 Kota Tangerang</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#00e932;
+  --green-dark:#008a2e;
+  --gray:#f5f7f8;
+  --text:#1f2937;
+  --radius:14px;
+  --shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;font-family:"Nunito",sans-serif;
+  background:var(--gray);
+  color:var(--text);
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.container{
+  width:100%;max-width:900px;
+  display:grid;grid-template-columns:1fr 1fr;
+  background:#fff;border-radius:24px;
+  box-shadow:var(--shadow);overflow:hidden;
+}
+.left{
+  background:linear-gradient(150deg,var(--green-dark),var(--green));
+  color:#fff;padding:40px 30px;
+  display:flex;flex-direction:column;
+  justify-content:center;align-items:center;
+  text-align:center;
+}
+.left img{width:120px;margin-bottom:16px;border-radius:20px;}
+.left h1{font-size:26px;margin-bottom:6px;}
+.left p{font-size:15px;opacity:0.9;max-width:300px;}
+
+.right{
+  padding:40px;
+  display:flex;flex-direction:column;
+  justify-content:center;
+}
+.right h2{
+  margin:0 0 10px;
+  font-size:24px;
+  color:var(--green-dark);
+}
+.right p{
+  font-size:14px;
+  color:#555;
+  margin-bottom:25px;
+}
+.form-group{margin-bottom:18px;}
+label{
+  display:block;
+  margin-bottom:6px;
+  font-weight:600;
+  font-size:14px;
+}
+input{
+  width:100%;
+  padding:12px 14px;
+  border-radius:var(--radius);
+  border:1px solid #ccc;
+  font-size:14px;
+}
+input:focus{
+  outline:none;
+  border-color:var(--green);
+}
+.btn{
+  width:100%;
+  padding:12px;
+  background:var(--green-dark);
+  color:#fff;
+  font-weight:700;
+  border:none;
+  border-radius:var(--radius);
+  cursor:pointer;
+  font-size:15px;
+  transition:background 0.2s ease;
+}
+.btn:hover{background:#007125;}
+.back{
+  text-align:center;
+  margin-top:18px;
+  font-size:13px;
+}
+.back a{
+  color:var(--green-dark);
+  text-decoration:none;
+  font-weight:600;
+}
+.alert{
+  display:none;
+  margin-top:15px;
+  padding:10px;
+  border-radius:var(--radius);
+  background:#e6f9e7;
+  border:1px solid #b3e6b7;
+  color:#007b2e;
+  font-size:14px;
+  text-align:center;
+}
+
+@media(max-width:768px){
+  .container{grid-template-columns:1fr;}
+  .left{display:none;}
+  .right{padding:30px 20px;}
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <img src="https://i.ibb.co.com/t6yPxYX/2.png" alt="Logo MTsN 1 Kota Tangerang">
+      <h1>MTsN 1 Kota Tangerang</h1>
+      <p>Madrasah Unggul — Mencetak Generasi Berilmu, Berakhlak, dan Berprestasi.</p>
+    </div>
+
+    <div class="right">
+      <h2>Lupa Password 🔑</h2>
+      <p>Masukkan email akun Anda. Kami akan mengirimkan tautan untuk mengatur ulang kata sandi.</p>
+      <form onsubmit="return sendReset(event)">
+        <div class="form-group">
+          <label for="email">Email Terdaftar</label>
+          <input type="email" id="email" placeholder="Masukkan email Anda" required>
+        </div>
+        <button class="btn" type="submit">Kirim Link Reset</button>
+        <div class="alert" id="alert">✅ Link reset telah dikirim ke email Anda!</div>
+        <div class="back">Kembali ke <a href="login.html">Halaman Login</a></div>
+      </form>
+    </div>
+  </div>
+
+<script>
+function sendReset(e){
+  e.preventDefault();
+  const alertBox = document.getElementById('alert');
+  alertBox.style.display = 'block';
+  setTimeout(()=> alertBox.style.display='none', 5000);
+  return false;
+}
+</script>
+</body>
+</html>

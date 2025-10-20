@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MTsN 1 Kota Tangerang</title>
+<!-- tidak menambah font baru — tetap pakai Poppins seperti permintaan -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --accent-green: #00b64f;
+  --section-green: #44e37f;
+  --green-light: #00ea33;
+  --card-radius: 22px;
+  --blue-name: #0b67f0;
+}
+
+/* Reset dasar (tetap pakai Poppins) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Body & layout dasar */
+body{
+  background-color: #f9fff9;
+  color: #00324d;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding-bottom: 120px; /* ruang untuk bottom bar */
+}
+
+/* ==== NAVBAR ==== */
+nav {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 80px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 999;
+  border-radius: 0 0 25px 25px;
+}
+
+.logo img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #00c46b;
+  background: #f3f3f3;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.05);
+}
+.menu a img {
+  height: 20px;
+  width: auto;
+  object-fit: contain;
+}
+.menu a.daftar {
+  background-color: #00ff40;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+}
+.menu a.daftar:hover { background-color: #00DC30; }
+.menu a:hover {
+  background: #00DC30;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 6px rgba(0, 200, 100, 0.25);
+}
+
+/* ==== LOGIN BUTTON (kanan) ==== */
+.login-container {
+  position: fixed;
+  top: 110px;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+.login-bg {
+  position: absolute;
+  top: -15px;
+  right: -35px;
+  width: 160px;
+  height: 140px;
+  background: white;
+  border-radius: 50px 0 0 50px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  z-index: -1;
+}
+.login-btn, .login-btn1 {
+  background-color: #00ff40;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: left;
+  padding: 10px 0;
+  border-radius: 20px 0 0 20px;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.login-btn { width: 180px; }
+.login-btn1 { width: 150px; }
+.login-btn:hover, .login-btn1:hover {
+  background-color: #00e63d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* ==== BACKGROUND ATAS ==== */
+.bg-top {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+  z-index: 0;
+}
+.bg-top .bg-img { width:100%; height:100%; object-fit:cover; object-position: top; }
+
+/* ==== KEUNGGULAN ==== */
+.wrapper {
+  width: 100%;
+  max-width: 1300px;
+  margin: 80px auto;
+}
+.title-box {
+  background-color: white;
+  color: #00E632;
+  text-align: center;
+  font-weight: 700;
+  font-size: 24px;
+  padding: 10px 35px;
+  border-radius: 20px 20px 0 0;
+  width: fit-content;
+  margin: 0 auto -25px auto;
+  position: relative;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+.content-box {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 70px 30px;
+}
+.features {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.feature {
+  flex: 1 1 calc(25% - 20px);
+  background-color: #ffffff;
+  text-align: center;
+  border-radius: 20px;
+  padding: 25px 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  min-width: 220px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.feature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+.feature-icon { font-size: 60px; margin-bottom: 15px; }
+.feature-title { color: #0054E5; font-weight:700; font-size:20px; margin-bottom:10px; }
+.feature-desc { color:#317DFF; font-size:16px; line-height:1.4; }
+
+/* ==== BERITA SECTION (yang sudah ada) ==== */
+.berita-section {
+  background-color: var(--section-green);
+  max-width: none;
+  width: calc(100% - 40px);
+  margin: 20px;
+  padding: 10px 32px;
+  border-radius: 20px;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+.berita-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:25px; }
+.berita-header h2 {
+  background-image: linear-gradient(to right, #FCE540, #FFEE76);
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 10px 25px;
+  border-radius: 40px;
+}
+.berita-container {
+  display: flex;
+  gap: 30px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  justify-content: center;
+  padding-bottom: 8px;
+}
+.berita-card {
+  background-color: #fff;
+  border-radius: 20px;
+  width: 320px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  color: var(--accent-green);
+  margin: 0;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.berita-card:hover {
+  background: #e8fbe8;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 6px rgba(0,200,100,0.18);
+}
+.berita-card img { width:100%; height:180px; object-fit:cover; }
+.label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to right, #00841D, #00E632, #00EA33);
+  color: #fff;
+  padding: 10px 20px;
+  border-bottom-right-radius: 20px;
+  font-weight: 600;
+}
+.berita-content { padding:15px 20px 25px; }
+.berita-content h3 { font-size:1rem; margin-bottom:8px; color:var(--accent-green); }
+.berita-content .date { font-size:.85rem; color:#aaa; }
+
+/* ==== TESTIMONIAL SECTION (ditambahkan) ==== */
+.testimonials-wrap {
+  max-width: 1200px;
+  margin: 60px auto 24px;
+  padding: 0 20px;
+}
+
+/* container kartu */
+.testimonials {
+  display:flex;
+  gap:36px;
+  justify-content:center;
+  align-items:flex-start;
+  flex-wrap:wrap;
+}
+
+/* kartu */
+.t-card {
+  width: 300px;
+  background: #fff;
+  border-radius: var(--card-radius);
+  padding: 56px 20px 18px;
+  position: relative;
+  box-shadow: 0 18px 30px rgba(3,34,63,0.08);
+  text-align: center;
+  overflow: visible;
+}
+
+/* avatar overlapping (rounded rectangle) */
+.t-avatar {
+  position:absolute;
+  left:50%;
+  top:-44px;
+  transform:translateX(-50%);
+  width:88px;
+  height:88px;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow: 0 10px 24px rgba(3,34,63,0.12);
+  border:6px solid #fff;
+  background:#eee;
+}
+.t-avatar img { width:100%; height:100%; object-fit:cover; display:block; }
+
+/* nama & jabatan (tetap Poppins) */
+.t-name {
+  margin-top:0;
+  margin-bottom:6px;
+  font-size:20px;
+  line-height:1;
+  font-weight:700;
+  color: var(--blue-name);
+}
+.t-title {
+  font-size:13px;
+  color:#1264b6;
+  margin-bottom:10px;
+  font-weight:600;
+}
+
+/* deskripsi testimoni */
+.t-desc {
+  font-size:13px;
+  color:#1264b6;
+  line-height:1.6;
+  padding:0 6px;
+  min-height:150px;
+}
+
+/* bottom green bar on card */
+.t-card .t-green {
+  position:absolute;
+  left:0; right:0; bottom:0;
+  height:16px;
+  background: linear-gradient(90deg, var(--accent-green) 0%, var(--green-light) 100%);
+  border-bottom-left-radius: var(--card-radius);
+  border-bottom-right-radius: var(--card-radius);
+}
+
+/* floating social box (kiri bawah) */
+.social-float {
+  position: fixed;
+  left: 28px;
+  bottom: 36px;
+  background: #fff;
+  border-radius: 18px;
+  padding: 18px 20px;
+  box-shadow: 0 12px 28px rgba(3,34,63,0.12);
+  display:flex;
+  gap:14px;
+  align-items:center;
+  min-width:220px;
+  z-index: 50;
+}
+.social-float h4 {
+  margin:0;
+  font-size:16px;
+  color: var(--accent-green);
+  font-weight:700;
+}
+.social-icons { display:flex; gap:10px; margin-left:8px; }
+.s-icon {
+  width:36px;height:36px;border-radius:8px;background:var(--accent-green);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 12px rgba(3,34,63,0.06);
+}
+.s-icon svg { width:18px; height:18px; fill:#fff; }
+
+/* bottom full green bar */
+.bottom-green {
+  position: fixed;
+  left:0; right:0; bottom:0;
+  height:22px;
+  background: linear-gradient(90deg, var(--accent-green) 0%, var(--green-light) 100%);
+  z-index: 10;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* responsiveness */
+@media (max-width:980px){
+  .testimonials { gap:20px; }
+  .t-card { width:280px; }
+  .t-avatar { width:78px; height:78px; top:-38px; }
+}
+@media (max-width:640px){
+  .testimonials { flex-direction:column; align-items:center; }
+  .social-float { left:50%; transform:translateX(-50%); }
+  nav { padding: 14px 20px; }
+  .menu { gap:12px; }
+  .bg-top { height:260px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">
+    <a href="index.html">
+      <img src="https://i.ibb.co/SwJcS05C/Frame-4-1.png" alt="Logo MTsN 1 Kota Tangerang">
+    </a>
+  </div>
+  <div class="menu">
+    <a href="index.html"><img src="https://i.ibb.co/PvhmF6xq/Home.png" alt="Home Icon">Home</a>
+    <a href="kategori.html"><img src="https://i.ibb.co/Xxmpftcb/Group-1.png" alt="Kategori Icon">Kategori</a>
+    <a href="blog.html">Blog</a>
+    <a href="tentangkami.html">Tentang Kami</a>
+    <a href="pendaftaran.html" class="daftar">Pendaftaran 2025/2026</a>
+  </div>
+</nav>
+
+<!-- BACKGROUND ATAS -->
+<div class="bg-top">
+  <img src="https://i.ibb.co/mrdpgLQ4/Frame-3-3.png" alt="Background MTsN" class="bg-img">
+</div>
+
+<!-- LOGIN BUTTON -->
+<div class="login-container">
+  <div class="login-bg"></div>
+  <a href="#" class="login-btn">ㅤLogin</a>
+  <a href="#" class="login-btn1">ㅤSign in</a>
+</div>
+
+<!-- KEUNGGULAN SECTION -->
+<div class="wrapper">
+  <div class="title-box">Keunggulan / Penawaran</div>
+  <div class="content-box">
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">💡</div>
+        <div class="feature-title">Akreditasi A</div>
+        <div class="feature-desc">
+          MTsN 1 Kota Tangerang memiliki akreditasi “A”, artinya mutu pendidikan dan sarana prasarana telah memenuhi standar tinggi.
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">📘</div>
+        <div class="feature-title">Full-Day School</div>
+        <div class="feature-desc">
+          Program reguler dengan lima hari belajar (Senin sampai Jumat) sebagai Full Day School.
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🏆</div>
+        <div class="feature-title">Prestasi Akademik & Nonakademik</div>
+        <div class="feature-desc">
+          Contoh: prestasi OMI (Olimpiade Madrasah Indonesia) bidang Matematika dan IPS.
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🏫</div>
+        <div class="feature-title">Kompetisi dan Reward</div>
+        <div class="feature-desc">
+          Siswa diberikan pembinaan dan penghargaan khusus bagi yang berprestasi, terutama di kompetisi.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BERITA SECTION -->
+<section class="berita-section">
+  <div class="berita-header">
+    <h2>Berita Terbaru</h2>
+  </div>
+
+  <div class="berita-container">
+    <div class="berita-card">
+      <div class="label">Laporan</div>
+      <img src="https://i.ytimg.com/vi/9VD9vNcUulc/maxresdefault.jpg" alt="Berita 1">
+      <div class="berita-content">
+        <h3>Koridor lantai 2 dekat masjid diperpanjang hingga ruang kelas 7</h3>
+        <p class="date">1 Januari 2025</p>
+      </div>
+    </div>
+
+    <div class="berita-card">
+      <div class="label">Laporan</div>
+      <img src="https://www.satelitnews.com/wp-content/uploads/2021/04/mtsn-kota-1617779078-161244275.webp" alt="Berita 2">
+      <div class="berita-content">
+        <h3>Mulai tanggal 10 Februari, Acara festival keislaman dimulai secara meriah oleh kepala sekolah</h3>
+        <p class="date">30 Januari 2025</p>
+      </div>
+    </div>
+
+    <div class="berita-card">
+      <div class="label">Laporan</div>
+      <img src="https://bantenringnews.wordpress.com/wp-content/uploads/2023/05/img20230525120426.jpg?w=1568" alt="Berita 3">
+      <div class="berita-content">
+        <h3>Persiapan keberangkatan MTsN 1 Kota Tangerang ke Bogor akan dimulai pada tanggal 3 Maret</h3>
+        <p class="date">20 Februari 2025</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS (ditambahkan) ===== -->
+<div class="testimonials-wrap">
+  <div class="testimonials">
+
+    <article class="t-card">
+      <div class="t-avatar">
+        <img src="https://is3.cloudhost.id/rpi-production/blog/303/145_-1722464537.webp" alt="Rafi">
+      </div>
+      <h3 class="t-name">Rafi Kurniawan</h3>
+      <div class="t-title">Alumni 2023</div>
+      <div class="t-desc">“Sejak pertama kali masuk MTsN 1 Kota Tangerang, aku langsung merasa suasananya berbeda. Sekolahnya bersih, tertata, dan para gurunya sangat ramah. Setiap pagi kami mulai dengan tadarus bersama, lalu dilanjutkan dengan pelajaran. Awalnya aku pikir kegiatan seperti itu akan membosankan, tapi ternyata justru bikin hati tenang dan fokus belajar.”</div>
+      <div class="t-green" aria-hidden="true"></div>
+    </article>
+
+    <article class="t-card">
+      <div class="t-avatar">
+        <img src="https://img.freepik.com/foto-gratis/wanita-muslim-berhijab-memakai-headphone-menggunakan-laptop-berbicara-kepada-kolega-tentang-laporan-penjualan-dalam-panggilan-video-konferensi-saat-bekerja-dari-kantor-rumah-pada-malam-hari_7861-3015.jpg?semt=ais_hybrid&w=740&q=80" alt="Fitri">
+      </div>
+      <h3 class="t-name">Fitri Azizah</h3>
+      <div class="t-title">Guru Bahasa Indonesia</div>
+      <div class="t-desc">“Mengajar di MTsN 1 Kota Tangerang adalah pengalaman yang sangat berharga. Anak-anak di sini datang dari latar belakang yang berbeda, tapi semangat mereka luar biasa. Kami para guru berusaha agar setiap pelajaran tidak hanya menambah pengetahuan, tapi juga menanamkan nilai-nilai kehidupan.”</div>
+      <div class="t-green" aria-hidden="true"></div>
+    </article>
+
+    <article class="t-card">
+      <div class="t-avatar">
+        <img src="https://www.intipesan.com/wp-content/uploads/2018/07/IMG-20180703-WA0004.jpg" alt="Rahman">
+      </div>
+      <h3 class="t-name">Rahman Sulaiman</h3>
+      <div class="t-title">Wali Murid Alumni 2023</div>
+      <div class="t-desc">“Anak saya, Rafi, dulu agak pendiam dan kurang disiplin soal waktu. Tapi setelah tiga tahun di MTsN 1 Kota Tangerang, saya melihat perubahan besar. Dia jadi lebih mandiri, rajin shalat, dan lebih menghormati orang tua. Saya sempat kaget waktu dia cerita tentang kegiatan-kegiatan sekolahnya — mulai dari Rohis, Paskibra, sampai lomba sains madrasah.”</div>
+      <div class="t-green" aria-hidden="true"></div>
+    </article>
+
+  </div>
+</div>
+
+<!-- floating social box -->
+<div class="social-float" role="complementary" aria-label="Our Social Media">
+  <h4>Our Social Media</h4>
+  <div class="social-icons">
+    <a href="https://www.instagram.com/mtsn1_kota_tangerang/?hl=en"><div class="s-icon" title="Instagram">
+     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6.5A4.5 4.5 0 1 0 16.5 13 4.5 4.5 0 0 0 12 8.5zm5.5-.9a1.1 1.1 0 1 0 1.1 1.1 1.1 1.1 0 0 0-1.1-1.1z"/></svg>
+    </div></a>
+    <a href="https://www.facebook.com/p/MTsN-1-Tangerang-100067009477789/"><div class="s-icon" title="Facebook">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8.9v-2.9h1.6V9.3c0-1.5.9-2.4 2.3-2.4.7 0 1.4.1 2 .2v2.2h-1.2c-1 0-1.3.6-1.3 1.2v1.6h2.3l-.4 2.9h-1.9v7A10 10 0 0 0 22 12z"/></svg>
+    </div></a>
+
+    <a href="https://twitter.com/mtsn1tangerang"><div class="s-icon" title="X">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 5L19 7l-6 6 6 6 2 2-4 4-2-2-6-6-6 6-2 2L1 19l2-2 6-6-6-6L1 3 5-1l2 2 6 6 6-6 2-2 4 4z"/></svg> 
+    </div></a>
+
+  </div>
+</div>
+
+<!-- bottom green bar -->
+<div class="bottom-green" aria-hidden="true"></div>
+
+</body>
+</html>

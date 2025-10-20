@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Blog Sederhana - MTsN 1 Kota Tangerang</title>
+
+<!-- Font simpel dari Google (opsional) -->
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+  /* ===== dasar ===== */
+  :root{
+    --green: #00e932;
+    --green-dark: #008a2e;
+    --bg: #f6f8f9;
+    --card: #ffffff;
+    --text: #1b2b3a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Nunito", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+  }
+  .container {
+    max-width: 980px;
+    margin: 18px auto;
+    padding: 12px;
+  }
+
+  /* header sederhana */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  }
+  .brand { display:flex; gap:12px; align-items:center; }
+  .brand .logo {
+    width:52px; height:52px; background:url('https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-10-20/YZsQV5bGAo.png') center/contain no-repeat;
+  }
+  nav a { margin-left:12px; color:var(--green-dark); text-decoration:none; font-weight:600; }
+
+  /* bagian atas: judul + search */
+  .top {
+    display:flex; justify-content:space-between; align-items:center; margin-top:12px; gap:12px;
+  }
+  .top h1 { margin:0; font-size:20px; color:var(--green-dark); }
+  .search {
+    display:flex; gap:8px; align-items:center;
+  }
+  .search input {
+    padding:8px 10px; border-radius:8px; border:1px solid #ddd;
+  }
+  .search button {
+    padding:8px 10px; border-radius:8px; border:none; background:var(--green); color:#fff; cursor:pointer;
+  }
+
+  /* layout 2 kolom sederhana */
+  .main { display:flex; gap:12px; margin-top:12px; }
+  .left { flex: 2; }
+  .right { flex: 1; }
+
+  /* card artikel sederhana */
+  .post {
+    background:var(--card); padding:10px; border-radius:8px; margin-bottom:12px; box-shadow:0 6px 18px rgba(0,0,0,0.04);
+  }
+  .post img { width:100%; height:160px; object-fit:cover; border-radius:6px; }
+  .post .meta { font-size:12px; color:#66788a; margin-top:8px; display:flex; justify-content:space-between; }
+  .post h3 { margin:8px 0 6px; font-size:18px; color:var(--text); }
+  .post p { margin:0 0 8px; font-size:14px; color:#334a5a; }
+  .post .read { display:inline-block; padding:6px 10px; background:var(--green); color:#fff; border-radius:6px; cursor:pointer; font-weight:700; font-size:13px; }
+
+  /* sidebar kecil */
+  .card { background:#fff; padding:12px; border-radius:8px; margin-bottom:12px; box-shadow:0 6px 18px rgba(0,0,0,0.04); }
+  .card h4 { margin:0 0 8px; color:var(--green-dark); }
+  .list { padding-left:14px; margin:0; }
+  .list li { margin-bottom:8px; font-size:14px; }
+
+  /* read-more content yang tersembunyi */
+  .full-content { display:none; margin-top:8px; font-size:14px; color:#243646; }
+
+  /* responsive */
+  @media(max-width:800px){
+    .main { flex-direction:column; }
+    .search { width:100%; }
+    .top { flex-direction:column; align-items:flex-start; gap:8px; }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- header -->
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div style="font-weight:700;color:var(--green-dark)">MTsN Negeri 1 Kota Tangerang</div>
+          <div style="font-size:12px;color:#778899">Blog Sekolah (versi sederhana)</div>
+        </div>
+      </div>
+      <nav>
+        <a href="kategori.html">Kategori</a>
+        <a href="login.html">Login</a>
+      </nav>
+    </header>
+
+    <!-- top: title + search -->
+    <div class="top">
+      <h1>Blog & Pengumuman</h1>
+
+      <div class="search">
+        <input id="q" type="text" placeholder="Cari judul atau isi..." oninput="filterPosts()">
+        <button onclick="filterPosts()">Cari</button>
+      </div>
+    </div>
+
+    <!-- konten utama: kiri (posts) + kanan (sidebar) -->
+    <div class="main">
+      <div class="left" id="posts">
+
+        <!-- POST 1 -->
+        <div class="post" data-title="Upacara Hari Amal Bakti" data-body="MTsN 1 Kota Tangerang mengadakan upacara Hari Amal Bakti Kemenag. Seluruh siswa ikut serta...">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTc5JL4l4UWNSsCRtg8nzAF4wOYiTtYevXULtFnWP4y4tb-W4CJ7tV93F9vSSHH8ukGTY&usqp=CAU" alt="Upacara">
+          <div class="meta"><span>10 September 2025</span><span>Pengumuman</span></div>
+          <h3>Upacara Hari Amal Bakti</h3>
+          <p>MTsN 1 Kota Tangerang menggelar upacara peringatan Hari Amal Bakti dengan khidmat...</p>
+          <div class="read" onclick="toggleFull(this)">Read More</div>
+          <div class="full-content">
+            <p>Pada upacara tersebut, kepala sekolah memberikan sambutan dan memberi penghargaan kepada siswa berprestasi. Kegiatan diakhiri dengan doa bersama.</p>
+          </div>
+        </div>
+
+        <!-- POST 2 -->
+        <div class="post" data-title="Full-Day School Laporan" data-body="Program Full-Day School berjalan baik, nilai rata-rata naik dan kedisiplinan meningkat.">
+          <img src="https://jasaterdekat.id/wp-content/uploads/2025/04/AF1QipPt3ZDs5HwKsOeRs9JAlEdolJyy5wL8LPZI4a9sw1200-h803-n-k-no-wm-tm-.webp" alt="Full Day">
+          <div class="meta"><span>1 Agustus 2025</span><span>Program</span></div>
+          <h3>Program Full-Day School: Laporan Semester</h3>
+          <p>Evaluasi program menunjukkan peningkatan hasil belajar dan kedisiplinan siswa...</p>
+          <div class="read" onclick="toggleFull(this)">Read More</div>
+          <div class="full-content">
+            <p>Dengan tambahan jam pengayaan, beberapa siswa menunjukkan peningkatan pada mata pelajaran sains dan matematika.</p>
+          </div>
+        </div>
+
+        <!-- POST 3 -->
+        <div class="post" data-title="Prestasi Olimpiade" data-body="Tim olimpiade berhasil raih juara 2; pembinaan intensif selama 3 bulan.">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4AaXd0H11doTK9U7OLVtWwChFKBlUGP5V1g&s" alt="Prestasi">
+          <div class="meta"><span>15 Juli 2025</span><span>Prestasi</span></div>
+          <h3>Prestasi Olimpiade Madrasah: Juara 2</h3>
+          <p>Selamat kepada tim olimpiade MTsN 1 yang berhasil meraih juara 2 pada lomba tingkat kabupaten.</p>
+          <div class="read" onclick="toggleFull(this)">Read More</div>
+          <div class="full-content">
+            <p>Pembinaan dan latihan intensif membuat tim tampil percaya diri. Semoga tahun depan bisa raih juara 1.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- sidebar -->
+      <div class="right">
+        <div class="card">
+          <h4>Posting Terbaru</h4>
+          <ul class="list">
+            <li><a href="#" onclick="scrollToPost(0);return false">Upacara Hari Amal Bakti</a></li>
+            <li><a href="#" onclick="scrollToPost(1);return false">Program Full-Day School</a></li>
+            <li><a href="#" onclick="scrollToPost(2);return false">Prestasi Olimpiade</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Kategori</h4>
+          <ul class="list">
+            <li><a href="#" onclick="filterByCategory('Pengumuman');return false">Pengumuman</a></li>
+            <li><a href="#" onclick="filterByCategory('Program');return false">Program</a></li>
+            <li><a href="#" onclick="filterByCategory('Prestasi');return false">Prestasi</a></li>
+            <li><a href="#" onclick="filterByCategory('');return false">Semua</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Tentang Penulis</h4>
+          <p style="margin:0;font-size:14px">Drs. H. Ahmad Syahputra . Kepala sekolah — menulis pengumuman & kabar sekolah.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+<script>
+  // fungsi toggle Read More (sederhana)
+  function toggleFull(btn) {
+    var post = btn.parentNode;
+    var full = post.querySelector('.full-content');
+    if (full.style.display === 'block') {
+      full.style.display = 'none';
+      btn.textContent = 'Read More';
+    } else {
+      full.style.display = 'block';
+      btn.textContent = 'Show Less';
+    }
+  }
+
+  // fungsi cari sederhana: cek title + body
+  function filterPosts() {
+    var q = document.getElementById('q').value.toLowerCase();
+    var posts = document.querySelectorAll('.post');
+    posts.forEach(function(p){
+      var title = p.getAttribute('data-title').toLowerCase();
+      var body = p.getAttribute('data-body').toLowerCase();
+      if (title.includes(q) || body.includes(q) || q === '') {
+        p.style.display = 'block';
+      } else {
+        p.style.display = 'none';
+      }
+    });
+  }
+
+  // filter by kategori: cari text kategori di .meta (kanan)
+  function filterByCategory(cat) {
+    var posts = document.querySelectorAll('.post');
+    posts.forEach(function(p){
+      var meta = p.querySelector('.meta').innerText;
+      if (cat === '' || meta.indexOf(cat) !== -1) {
+        p.style.display = 'block';
+      } else {
+        p.style.display = 'none';
+      }
+    });
+  }
+
+  // scroll ke post by index (untuk sidebar links)
+  function scrollToPost(index) {
+    var posts = document.querySelectorAll('.post');
+    if (posts[index]) {
+      posts[index].scrollIntoView({behavior:'smooth', block:'start'});
+      // highlight temporary
+      var el = posts[index];
+      el.style.transition = 'background 0.5s';
+      var old = el.style.backgroundColor;
+      el.style.backgroundColor = '#fffde6';
+      setTimeout(function(){ el.style.backgroundColor = old; }, 800);
+    }
+  }
+</script>
+</body>
+</html>
